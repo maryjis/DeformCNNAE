@@ -77,7 +77,7 @@ class Trainer():
             img, label = data
             img = img.float().to(self.device)
             label = label.long().to(self.device)
-            # ===================forward=====================
+        
             codes, output, preds = self.model(img)
             soft_preds = F.softmax(preds.data)
             _, predicted = torch.max(soft_preds, 1)
@@ -86,7 +86,7 @@ class Trainer():
             l2_loss = self.criterion(output, img)
             cr_loss1 = self.cr_loss(preds, label)
             loss = l2_loss + cr_loss1
-            # ===================backward====================
+
             if is_Train:
                 self.optimizer.zero_grad()
                 loss.backward()
