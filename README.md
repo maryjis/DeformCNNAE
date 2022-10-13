@@ -1,2 +1,2 @@
-# deform_CNNAE
+# DeformCNNAE
 2D and 3D deformable CNN Autoencoders
